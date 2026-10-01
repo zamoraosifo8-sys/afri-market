@@ -106,7 +106,7 @@ const [country, setCountry] = useState("");
             amount,
             items,
             currency: "NGN",
-            callback_url: "https://renovate-nylon-prolonged.ngrok-free.dev/",
+            callback_url: "http://afri-market-web.onrender.com/",
           }),
         }
       );
@@ -232,5 +232,6 @@ localStorage.setItem(
 }
 
 export default Checkout;
+
 
 

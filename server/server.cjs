@@ -1279,7 +1279,7 @@ if (!currency || String(currency).toUpperCase() !== "NGN") {
           email,
           amount: String(amount),
           ...(currency ? { currency } : {}),
-          callback_url: "https://renovate-nylon-prolonged.ngrok-free.dev/",
+          callback_url: "http://afri-market-web.onrender.com/",
         }),
       }
     );
@@ -1670,6 +1670,7 @@ async function startServer() {
   }
 }
 startServer();
+
 
 
 
