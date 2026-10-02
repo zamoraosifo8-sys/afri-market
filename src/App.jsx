@@ -692,6 +692,7 @@ if (alreadySaved) {
               onIncrease={increaseQuantity}
               onDecrease={decreaseQuantity}
               onCheckout={() => {
+                window.history.replaceState({}, document.title, window.location.pathname);
                 setShowCart(false);
                 setShowCheckout(true);
               }}
@@ -1010,5 +1011,6 @@ if (alreadySaved) {
 }
 
 export default App;
+
 
 
