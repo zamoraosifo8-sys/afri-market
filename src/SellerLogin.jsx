@@ -1,5 +1,5 @@
 import PasswordInput from "./PasswordInput";
-function SellerLogin() {
+function SellerLogin({ onLoggedIn }) {
    const handleSellerLogin = async (e) => {
   e.preventDefault();
 
@@ -36,7 +36,8 @@ function SellerLogin() {
       );
     }
 localStorage.setItem("afriMarketSellerToken", data.token);
-    alert(data.message);
+    localStorage.setItem("afriMarketSeller", JSON.stringify(data.seller));
+    alert(data.message); if (onLoggedIn) onLoggedIn();
   } catch (error) {
     console.error("Seller login error:", error);
     alert(error.message);
@@ -70,3 +71,6 @@ localStorage.setItem("afriMarketSellerToken", data.token);
 }
 
 export default SellerLogin;
+
+
+

@@ -39,14 +39,37 @@ function saveOrders(orders) {
   }
 }
 
+function SellerArea({ onRegister, onLogin }) {
+  return (
+    <section className="seller-area">
+      <div className="container">
+        <h2>Become a Seller</h2>
+        <div className="seller-area-actions">
+          <button type="button" onClick={onRegister}>Sign Up</button>
+          <button type="button" onClick={onLogin}>Login</button>
+        </div>
+      </div>
+    </section>
+  );
+}
 function App() {
   const [showCart, setShowCart] = useState(false);
   const [showWishlist, setShowWishlist] = useState(false);
   const [showOrderHistory, setShowOrderHistory] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showCustomerLogin, setShowCustomerLogin] = useState(false);
+  const [showCustomerRegister, setShowCustomerRegister] = useState(false);
  const [showCheckout, setShowCheckout] = useState(() =>
   new URLSearchParams(window.location.search).has("reference")
 );
   const [showSellerRegister, setShowSellerRegister] = useState(false);
+  const [showSellerArea, setShowSellerArea] = useState(false);
+  const [showSellerLogin, setShowSellerLogin] = useState(false);
+  const [showSellerProfile, setShowSellerProfile] = useState(false);
+  const [showSellerDashboard, setShowSellerDashboard] = useState(false);
+  const [showSellerAddProduct, setShowSellerAddProduct] = useState(false);
+  const [showSellerEditProduct, setShowSellerEditProduct] = useState(false);
+  const [showSellerDeleteProduct, setShowSellerDeleteProduct] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
     const [cartItems, setCartItems] = useState(() => {
     try {
@@ -447,7 +470,8 @@ if (alreadySaved) {
       <div>
         <header className="header">
           <div className="container header-inner">
-            <div className="logo">AfriMarket</div>
+            <button type="button" className="mobile-menu-button" onClick={() => setShowMobileMenu((open) => !open)} aria-label="Open menu">&#9776;</button>
+        <div className="logo">AfriMarket</div>
 
             <nav className="nav">
               <a href="#shop" onClick={showMainShop}>Shop</a>
@@ -456,7 +480,7 @@ if (alreadySaved) {
               <a
                 href="#seller"
                 onClick={() => {
-                  setShowSellerRegister(true);
+                  setShowSellerArea(true);
                 }}
               >
                 Become a Seller
@@ -464,7 +488,22 @@ if (alreadySaved) {
               <a href="#contact">Contact Us</a>
             </nav>
 
+            {showMobileMenu && (
+              <div className="mobile-menu">
+                <a href="#" onClick={() => { showMainShop(); setShowMobileMenu(false); }}>Home</a>
+                <a href="#shop" onClick={() => { showMainShop(); setShowMobileMenu(false); }}>Shop</a>
+                <a href="#categories" onClick={() => { showMainShop(); setShowMobileMenu(false); }}>Categories</a>
+                <a href="#how-it-works" onClick={() => setShowMobileMenu(false)}>How It Works</a>
+                <a href="#seller" onClick={() => { setShowSellerArea(true); setShowMobileMenu(false); }}>Become a Seller</a>
+                <a href="#contact" onClick={() => setShowMobileMenu(false)}>Contact Us</a>
+                <button type="button" onClick={() => { setShowOrderHistory(true); setShowWishlist(false); setShowCart(false); setShowCheckout(false); setShowMobileMenu(false); }}>Order History ({orderHistory.length})</button>
+                <button type="button" onClick={() => { setShowWishlist(true); setShowOrderHistory(false); setShowCart(false); setShowCheckout(false); setShowMobileMenu(false); }}>Wishlist ({wishlistItems.length})</button>
+                <button type="button" onClick={() => { setShowCart(true); setShowWishlist(false); setShowOrderHistory(false); setShowCheckout(false); setShowMobileMenu(false); }}>Cart ({cartItems.length})</button>
+              </div>
+            )}
             <div className="header-actions">
+              <button type="button" onClick={() => { setShowCustomerRegister(true); setShowCustomerLogin(false); setShowOrderHistory(false); setShowWishlist(false); setShowCart(false); setShowCheckout(false); }}>Sign Up</button>
+              <button type="button" onClick={() => { setShowCustomerLogin(true); setShowCustomerRegister(false); setShowOrderHistory(false); setShowWishlist(false); setShowCart(false); setShowCheckout(false); }}>Login</button>
               <button
                 type="button"
                 onClick={() => {
@@ -674,7 +713,17 @@ if (alreadySaved) {
                 )}
               </div>
             </section>
-          ) : showCheckout ? (
+          ) : showCustomerLogin ? (
+            <CustomerLogin />
+          ) : showCustomerRegister ? (
+            <CustomerRegister />
+          ) : showSellerArea ? (
+            <SellerArea onRegister={() => { setShowSellerRegister(true); setShowSellerArea(false); }} onLogin={() => { setShowSellerLogin(true); setShowSellerArea(false); }} />
+          ) : showSellerRegister ? (
+            <SellerRegister onRegistered={() => { setShowSellerRegister(false); setShowSellerLogin(true); }} />
+          ) : showSellerLogin ? (
+            <SellerLogin onLoggedIn={() => { setShowSellerLogin(false); setShowSellerProfile(true); }} />
+          ) : showSellerProfile ? ( <SellerProfile onDashboard={() => { setShowSellerProfile(false); setShowSellerDashboard(true); }} /> ) : showSellerDashboard ? ( <SellerDashboard onAddProduct={() => { setShowSellerDashboard(false); setShowSellerAddProduct(true); }} onEditProduct={() => { setShowSellerDashboard(false); setShowSellerEditProduct(true); }} onDeleteProduct={() => { setShowSellerDashboard(false); setShowSellerDeleteProduct(true); }} /> ) : showSellerAddProduct ? ( <SellerAddProduct /> ) : showSellerEditProduct ? ( <SellerEditProduct /> ) : showSellerDeleteProduct ? ( <SellerDeleteProduct /> ) : showCheckout ? (
             <Checkout
               items={cartItems}
               onBackToCart={() => {
@@ -864,27 +913,6 @@ if (alreadySaved) {
                 </div>
               </section>
 
-              <section className="seller-banner" id="seller">
-                <div className="container">
-                  <div>
-                    <p className="eyebrow">FOR AFRICAN BUSINESSES</p>
-                    <h2>Have products to sell?</h2>
-                    <p>
-                      Join AfriMarket and reach customers around the world.
-                    </p>
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={() => setShowSellerRegister(true)}
-                  >
-                    Become a seller
-                  </button>
-                </div>
-              </section>
-
-              {showSellerRegister && <SellerRegister />}
-
               <section id="contact" className="contact-section">
                 <div className="container">
                   <h2>Contact AfriMarket</h2>
@@ -953,48 +981,7 @@ if (alreadySaved) {
           )}
         </main>
 
-        <details className="feature-panel">
-  <summary>Customer Account</summary>
-  <CustomerRegister />
-  <CustomerLogin />
-  <CustomerProfile />
-</details>
 
-<details className="feature-panel">
-  <summary>Admin</summary>
-  <AdminLogin />
-  <Admin />
-  <Notifications />
-</details>
-
-<details className="feature-panel">
-  <summary>Seller Tools</summary>
-  <SellerLogin />
-  <SellerProfile />
-  <SellerAddProduct />
-  <SellerEditProduct />
-  <SellerDeleteProduct />
-
-  <SellerDashboard
-    onAddProduct={() =>
-      document
-        .querySelector(".seller-add-product")
-        ?.scrollIntoView({ behavior: "smooth" })
-    }
-    onEditProduct={() =>
-      document
-        .querySelector(".seller-edit-product")
-        ?.scrollIntoView({ behavior: "smooth" })
-    }
-    onDeleteProduct={() =>
-      document
-        .querySelector(".seller-delete-product")
-        ?.scrollIntoView({ behavior: "smooth" })
-    }
-  />
-
-  <SellerProducts />
-</details>
 
         <footer className="footer">
           <div className="container">
@@ -1011,6 +998,40 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

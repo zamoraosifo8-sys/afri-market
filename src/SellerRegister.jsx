@@ -1,5 +1,5 @@
 import PasswordInput from "./PasswordInput";
-function SellerRegister() {
+function SellerRegister({ onRegistered }) {
   const handleSellerSubmit = async (e) => {
     e.preventDefault();
 
@@ -55,6 +55,7 @@ function SellerRegister() {
       alert(data.message);
 
       form.reset();
+      if (onRegistered) onRegistered();
     } catch (error) {
       console.error("Seller registration error:", error);
       alert("Sorry, seller registration could not be completed.");
@@ -103,3 +104,4 @@ function SellerRegister() {
 }
 
 export default SellerRegister;
+

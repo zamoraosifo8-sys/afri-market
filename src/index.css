@@ -271,3 +271,27 @@ select {
   background: white;
   color: #000;
 }
+@media (max-width: 900px) {
+  .mobile-menu button {
+    display: block;
+    width: 100%;
+    padding: 12px 8px;
+    border: 0;
+    background: transparent;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 900px) {
+  .header-inner {
+    flex-wrap: wrap;
+  }
+
+  .mobile-menu {
+    flex-basis: 100%;
+    order: 10;
+  }
+}
