@@ -22,17 +22,10 @@ function ProductCard({
         <button type="button" onClick={onViewDetails}>
           View Details
         </button>
-
-        <button type="button" onClick={onAddToCart}>
-          Add to cart
-        </button>
-
-        <button type="button" onClick={onAddToWishlist}>
-  {isInWishlist ? "Remove from Wishlist" : "♡ Wishlist"}
-</button>
       </div>
     </div>
   );
 }
 
 export default ProductCard;
+

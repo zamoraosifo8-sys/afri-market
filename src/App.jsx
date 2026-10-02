@@ -456,7 +456,6 @@ if (alreadySaved) {
               <a
                 href="#seller"
                 onClick={() => {
-                  showMainShop();
                   setShowSellerRegister(true);
                 }}
               >
@@ -721,7 +720,6 @@ if (alreadySaved) {
                           }
                           onViewDetails={() => {
                             setSelectedProduct(product);
-                            showMainShop();
                           }}
                         />
                         <button type="button" onClick={() => removeFromWishlist(product.name)}>
@@ -740,6 +738,8 @@ if (alreadySaved) {
                   product={selectedProduct}
                   onClose={() => setSelectedProduct(null)}
                   onAddToCart={addToCart}
+                  onAddToWishlist={addToWishlist}
+                  isInWishlist={wishlistItems.some((item) => item.name === selectedProduct?.name)}
                   orderHistory={orderHistory}
                 />
               ) : (
@@ -1011,6 +1011,12 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
+
+
+
+
 
 
 

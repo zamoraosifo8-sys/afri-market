@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function ProductDetails({ product, onClose, onAddToCart }) {
+function ProductDetails({ product, onClose, onAddToCart, onAddToWishlist, isInWishlist = false }) {
   const [rating, setRating] = useState("5");
   const [reviewText, setReviewText] = useState("");
   const [reviews, setReviews] = useState([]);
@@ -106,8 +106,13 @@ function ProductDetails({ product, onClose, onAddToCart }) {
       ))}
 
       <button onClick={() => onAddToCart(product)}>Add to cart</button>
+      <button onClick={() => onAddToWishlist(product)}>{isInWishlist ? "Remove from Wishlist" : "Wishlist"}</button>
     </div>
   );
 }
 
 export default ProductDetails;
+
+
+
+
