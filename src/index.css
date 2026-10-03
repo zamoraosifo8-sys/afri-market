@@ -287,11 +287,21 @@ select {
 
 @media (max-width: 900px) {
   .header-inner {
-    flex-wrap: wrap;
+    position: relative;
+    flex-wrap: nowrap;
   }
 
   .mobile-menu {
-    flex-basis: 100%;
-    order: 10;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 220px;
+    z-index: 1000;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 0 0 10px 10px;
+    box-shadow: var(--shadow);
+    padding: 8px;
   }
 }
+
