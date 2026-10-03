@@ -56,6 +56,8 @@ function App() {
   const [showCart, setShowCart] = useState(false);
   const [showWishlist, setShowWishlist] = useState(false);
   const [showOrderHistory, setShowOrderHistory] = useState(false);
+  const [showShopParent, setShowShopParent] = useState(false);
+  const [showCustomerAccount, setShowCustomerAccount] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showCustomerLogin, setShowCustomerLogin] = useState(false);
   const [showCustomerRegister, setShowCustomerRegister] = useState(false);
@@ -968,6 +970,8 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
 
 
 
