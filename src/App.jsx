@@ -470,74 +470,44 @@ if (alreadySaved) {
       <div>
         <header className="header">
           <div className="container header-inner">
-            <button type="button" className="mobile-menu-button" onClick={() => setShowMobileMenu((open) => !open)} aria-label="Open menu">&#9776;</button>
-        <div className="logo">AfriMarket</div>
+            <button
+              type="button"
+              className="mobile-menu-button"
+              onClick={() => setShowMobileMenu((open) => !open)}
+              aria-label="Open menu"
+            >
+              &#9776;
+            </button>
 
-            <nav className="nav">
-              <a href="#shop" onClick={showMainShop}>Shop</a>
-              <a href="#categories" onClick={showMainShop}>Categories</a>
-              <a href="#how-it-works">How It Works</a>
-              <a
-                href="#seller"
-                onClick={() => {
-                  setShowSellerArea(true);
-                }}
-              >
-                Become a Seller
-              </a>
-              <a href="#contact">Contact Us</a>
-            </nav>
+            <div className="logo">AfriMarket</div>
 
-            {showMobileMenu && (
-              <div className="mobile-menu">
-                <a href="#" onClick={() => { showMainShop(); setShowMobileMenu(false); }}>Home</a>
-                <a href="#shop" onClick={() => { showMainShop(); setShowMobileMenu(false); }}>Shop</a>
-                <a href="#categories" onClick={() => { showMainShop(); setShowMobileMenu(false); }}>Categories</a>
-                <a href="#how-it-works" onClick={() => setShowMobileMenu(false)}>How It Works</a>
-                <a href="#seller" onClick={() => { setShowSellerArea(true); setShowMobileMenu(false); }}>Become a Seller</a>
-                <a href="#contact" onClick={() => setShowMobileMenu(false)}>Contact Us</a>
-                <button type="button" onClick={() => { setShowOrderHistory(true); setShowWishlist(false); setShowCart(false); setShowCheckout(false); setShowMobileMenu(false); }}>Order History ({orderHistory.length})</button>
-                <button type="button" onClick={() => { setShowWishlist(true); setShowOrderHistory(false); setShowCart(false); setShowCheckout(false); setShowMobileMenu(false); }}>Wishlist ({wishlistItems.length})</button>
-                <button type="button" onClick={() => { setShowCart(true); setShowWishlist(false); setShowOrderHistory(false); setShowCheckout(false); setShowMobileMenu(false); }}>Cart ({cartItems.length})</button>
-              </div>
-            )}
             <div className="header-actions">
-              <button type="button" onClick={() => { setShowCustomerRegister(true); setShowCustomerLogin(false); setShowOrderHistory(false); setShowWishlist(false); setShowCart(false); setShowCheckout(false); }}>Sign Up</button>
-              <button type="button" onClick={() => { setShowCustomerLogin(true); setShowCustomerRegister(false); setShowOrderHistory(false); setShowWishlist(false); setShowCart(false); setShowCheckout(false); }}>Login</button>
               <button
                 type="button"
                 onClick={() => {
-                  setShowOrderHistory(true);
+                  setShowCustomerRegister(true);
+                  setShowCustomerLogin(false);
+                  setShowOrderHistory(false);
                   setShowWishlist(false);
                   setShowCart(false);
                   setShowCheckout(false);
                 }}
               >
-                Order History ({orderHistory.length})
+                Sign Up
               </button>
 
               <button
                 type="button"
                 onClick={() => {
-                  setShowWishlist(true);
+                  setShowCustomerLogin(true);
+                  setShowCustomerRegister(false);
                   setShowOrderHistory(false);
+                  setShowWishlist(false);
                   setShowCart(false);
                   setShowCheckout(false);
                 }}
               >
-                Wishlist ({wishlistItems.length})
-              </button>
-
-              <button
-                type="button"
-                onClick={() => {
-                  setShowCart(true);
-                  setShowWishlist(false);
-                  setShowOrderHistory(false);
-                  setShowCheckout(false);
-                }}
-              >
-                Cart ({cartItems.length})
+                Login
               </button>
             </div>
           </div>
@@ -998,6 +968,7 @@ if (alreadySaved) {
 }
 
 export default App;
+
 
 
 
