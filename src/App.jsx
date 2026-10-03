@@ -120,6 +120,8 @@ function App() {
   const [orderHistory, setOrderHistory] = useState(readSavedOrders);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [showHomeSearch, setShowHomeSearch] = useState(false);
+  const [homeDashboardView, setHomeDashboardView] = useState(null);
   const [sellerProducts, setSellerProducts] = useState([]);
 
 useEffect(() => {
@@ -1017,6 +1019,8 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
 
 
 
