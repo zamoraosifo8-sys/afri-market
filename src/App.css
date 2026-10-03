@@ -120,7 +120,7 @@ a {
 }
 
 .hero h1 {
-  font-size: clamp(48px, 7vw, 82px);
+  font-size: clamp(32px, 5vw, 52px);
   line-height: 0.98;
   letter-spacing: -4px;
   color: #173d2c;
@@ -606,3 +606,4 @@ footer p {
     display: none;
   }
 }
+
