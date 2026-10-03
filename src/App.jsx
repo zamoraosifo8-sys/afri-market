@@ -525,7 +525,17 @@ if (alreadySaved) {
         </header>
 
         <main>
-          {showOrderHistory ? (
+          {showShopParent ? (
+            <section className="shop-parent-page">
+              <div className="container">
+                <h1>Shop</h1>
+                <p>Explore products available on AfriMarket.</p>
+                <button type="button" onClick={() => setShowShopParent(false)}>
+                  Back
+                </button>
+              </div>
+            </section>
+          ) : showOrderHistory ? (
             <section className="order-history-page">
               <div className="container">
                 <h1>Order History</h1>
@@ -979,6 +989,7 @@ if (alreadySaved) {
 }
 
 export default App;
+
 
 
 
