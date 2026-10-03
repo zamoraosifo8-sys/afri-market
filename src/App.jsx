@@ -57,6 +57,7 @@ function App() {
   const [showWishlist, setShowWishlist] = useState(false);
   const [showOrderHistory, setShowOrderHistory] = useState(false);
   const [showShopParent, setShowShopParent] = useState(false);
+  const [showBrowseProducts, setShowBrowseProducts] = useState(false);
   const [showCustomerAccount, setShowCustomerAccount] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showCustomerLogin, setShowCustomerLogin] = useState(false);
@@ -525,11 +526,24 @@ if (alreadySaved) {
         </header>
 
         <main>
-          {showShopParent ? (
+          {showBrowseProducts ? (
+            <section className="browse-products-page">
+              <div className="container">
+                <h1>Browse Products</h1>
+                <p>Choose from products available on AfriMarket.</p>
+                <button type="button" onClick={() => setShowBrowseProducts(false)}>
+                  Back
+                </button>
+              </div>
+            </section>
+          ) : showShopParent ? (
             <section className="shop-parent-page">
               <div className="container">
                 <h1>Shop</h1>
                 <p>Explore products available on AfriMarket.</p>
+                <button type="button" onClick={() => setShowBrowseProducts(true)}>
+                  Browse Products
+                </button>
                 <button type="button" onClick={() => setShowShopParent(false)}>
                   Back
                 </button>
@@ -989,6 +1003,11 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
+
+
+
 
 
 
