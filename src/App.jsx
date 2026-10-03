@@ -74,6 +74,7 @@ function App() {
   const [showSellerEditProduct, setShowSellerEditProduct] = useState(false);
   const [showSellerDeleteProduct, setShowSellerDeleteProduct] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [productDetailsSource, setProductDetailsSource] = useState(null);
     const [cartItems, setCartItems] = useState(() => {
     try {
       const reference = new URLSearchParams(window.location.search).get("reference");
@@ -531,6 +532,19 @@ if (alreadySaved) {
               <div className="container">
                 <h1>Browse Products</h1>
                 <p>Choose from products available on AfriMarket.</p>
+                <div className="product-grid">
+                  {filteredProducts.map((product) => (
+                    <ProductCard
+                      key={product.name}
+                      name={product.name}
+                      price={product.price}
+                      image={product.image}
+                      onAddToCart={() => addToCart(product)}
+                      onAddToWishlist={() => addToWishlist(product)}
+                      onViewDetails={() => { setProductDetailsSource("browse"); setShowBrowseProducts(false); setSelectedProduct(product); }}
+                    />
+                  ))}
+                </div>
                 <button type="button" onClick={() => setShowBrowseProducts(false)}>
                   Back
                 </button>
@@ -790,7 +804,7 @@ if (alreadySaved) {
               {selectedProduct ? (
                 <ProductDetails
                   product={selectedProduct}
-                  onClose={() => setSelectedProduct(null)}
+                  onClose={() => { const fromBrowse = productDetailsSource === "browse"; setSelectedProduct(null); setProductDetailsSource(null); if (fromBrowse) setShowBrowseProducts(true); }}
                   onAddToCart={addToCart}
                   onAddToWishlist={addToWishlist}
                   isInWishlist={wishlistItems.some((item) => item.name === selectedProduct?.name)}
@@ -1003,6 +1017,12 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
+
+
+
+
 
 
 
