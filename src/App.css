@@ -608,3 +608,17 @@ footer p {
 }
 
 
+
+.rainbow-heading {
+  background: linear-gradient(90deg, #ff0000, #ff8c00, #ffd700, #00a000, #008cff, #7a00ff, #ff1493);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbowText 6s linear infinite;
+}
+
+@keyframes rainbowText {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}

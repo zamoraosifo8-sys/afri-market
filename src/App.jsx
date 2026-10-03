@@ -816,7 +816,7 @@ if (alreadySaved) {
                 <section className="hero">
                   <div className="container hero-content">
                     <p className="eyebrow">AUTHENTIC PRODUCTS FROM AFRICA</p>
-                    <h1>Africa is closer than you think.</h1>
+                    <h1 className="rainbow-heading">Africa is closer than you think.</h1>
                     <p className="hero-text">
                       Discover authentic products made by African artisans,
                       brands, and businesses. Order from home and have them
