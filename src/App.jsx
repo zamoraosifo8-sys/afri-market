@@ -823,181 +823,169 @@ if (alreadySaved) {
                       delivered to your doorstep anywhere in the world.
                     </p>
 
-                    <div className="search-box">
-  <input
-    type="text"
-    placeholder="Search for products..."
-    value={searchTerm}
-    list="afriMarketProductSuggestions"
-    onChange={(event) => setSearchTerm(event.target.value)}
-  />
+                    <div className="home-shortcuts">
+                      <button
+                        type="button"
+                        onClick={() => setShowHomeSearch((open) => !open)}
+                      >
+                        SEARCH
+                      </button>
 
-  <datalist id="afriMarketProductSuggestions">
-    {[...products, ...sellerProducts].map((product) => (
-      <option key={product.name} value={product.name} />
-    ))}
-  </datalist>
+                      <button
+                        type="button"
+                        onClick={() => setShowBrowseProducts(true)}
+                      >
+                        SHOP AFRICA
+                      </button>
 
-  <button type="button">Search</button>
-</div>
+                      <button
+                        type="button"
+                        onClick={() => setHomeDashboardView("contact")}
+                      >
+                        CONTACT US
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setHomeDashboardView("help")}
+                      >
+                        FAQ &amp; HELP
+                      </button>
+                    </div>
+
+                    {showHomeSearch && (
+                      <div className="search-box">
+                        <input
+                          type="text"
+                          placeholder="Search for products..."
+                          value={searchTerm}
+                          list="afriMarketProductSuggestions"
+                          onChange={(event) => setSearchTerm(event.target.value)}
+                        />
+
+                        <datalist id="afriMarketProductSuggestions">
+                          {[...products, ...sellerProducts].map((product) => (
+                            <option key={product.name} value={product.name} />
+                          ))}
+                        </datalist>
+
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setHomeDashboardView("search");
+                            setSelectedCategory("All");
+                          }}
+                        >
+                          Search
+                        </button>
+                      </div>
+                    )}
+                    </div>
+                </section>
+              )}
+              {homeDashboardView && (
+                <section className="home-dashboard">
+                  <div className="container">
+                    {homeDashboardView === "search" && (
+                      <>
+                        <h2>Search Results</h2>
+                        {filteredProducts.length > 0 ? (
+                          <div className="product-grid">
+                            {filteredProducts.map((product) => (
+                              <ProductCard
+                                key={product.name}
+                                name={product.name}
+                                price={product.price}
+                                image={product.image}
+                                onAddToCart={() => addToCart(product)}
+                                onAddToWishlist={() => addToWishlist(product)}
+                                onViewDetails={() => {
+                                  setProductDetailsSource("home-search");
+                                  setSelectedProduct(product);
+                                }}
+                              />
+                            ))}
+                          </div>
+                        ) : (
+                          <p>No products found. Try another search.</p>
+                        )}
+                      </>
+                    )}
+
+                    {homeDashboardView === "contact" && (
+                      <>
+                        <h2>Contact AfriMarket</h2>
+                        <p>
+                          Have a question or need help? Send us a message and
+                          our support team will get back to you.
+                        </p>
+
+                        <form onSubmit={handleContactSubmit}>
+                          <input type="text" placeholder="Your Name" required />
+                          <input
+                            type="email"
+                            placeholder="Your Email"
+                            required
+                          />
+                          <textarea
+                            placeholder="Your Message"
+                            rows="5"
+                            required
+                          />
+                          <button type="submit">Send Message</button>
+                        </form>
+                      </>
+                    )}
+
+                    {homeDashboardView === "help" && (
+                      <>
+                        <h2>FAQ &amp; Help</h2>
+
+                        <div className="faq-item">
+                          <h3>How do I place an order?</h3>
+                          <p>
+                            Browse our products, choose the item you want, add
+                            it to your cart, and continue to checkout to
+                            complete your order.
+                          </p>
+                        </div>
+
+                        <div className="faq-item">
+                          <h3>How can I contact AfriMarket support?</h3>
+                          <p>
+                            You can use our Contact Us form or the floating
+                            customer chat to reach our support team.
+                          </p>
+                        </div>
+
+                        <div className="faq-item">
+                          <h3>How can I become a seller?</h3>
+                          <p>
+                            Select Become a Seller from the navigation menu and
+                            follow the registration process.
+                          </p>
+                        </div>
+
+                        <div className="faq-item">
+                          <h3>What happens after I place an order?</h3>
+                          <p>
+                            Your order will be processed after payment
+                            confirmation, and you will be able to follow its
+                            progress through the order system.
+                          </p>
+                        </div>
+                      </>
+                    )}
+
+                    <button
+                      type="button"
+                      onClick={() => setHomeDashboardView(null)}
+                    >
+                      Back
+                    </button>
                   </div>
                 </section>
               )}
-
-              <section className="categories" id="categories">
-                <div className="container">
-                  <p className="eyebrow">EXPLORE</p>
-                  <h2>Shop by Category</h2>
-
-                  <div className="category-grid">
-                    <button
-                      type="button"
-                      className="category-card"
-                      onClick={() => setSelectedCategory("Fashion")}
-                    >
-                      <span>👗</span>
-                      <h3>Fashion</h3>
-                      <p>Ankara, clothing &amp; accessories</p>
-                    </button>
-
-                    <button
-                      type="button"
-                      className="category-card"
-                      onClick={() => setSelectedCategory("Food & Snacks")}
-                    >
-                      <span>🥜</span>
-                      <h3>Food &amp; Snacks</h3>
-                      <p>Authentic African foods &amp; treats</p>
-                    </button>
-
-                    <button
-                      type="button"
-                      className="category-card"
-                      onClick={() => setSelectedCategory("Beauty")}
-                    >
-                      <span>🧴</span>
-                      <h3>Beauty</h3>
-                      <p>Natural beauty &amp; skincare</p>
-                    </button>
-                  </div>
-                </div>
-              </section>
-
-              <section className="products" id="shop">
-                <div className="container">
-                  <div className="section-heading">
-                    <div>
-                      <p className="eyebrow">SHOP AFRICA</p>
-                      <h2>Popular Products</h2>
-
-                      <div>
-                        {[
-                          "All",
-                          "Fashion",
-                          "Food & Snacks",
-                          "Beauty",
-                          "Arts & Crafts",
-                        ].map((category) => (
-                          <button
-                            key={category}
-                            type="button"
-                            onClick={() => setSelectedCategory(category)}
-                          >
-                            {category}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    <button
-                      type="button"
-                      className="view-all"
-                      onClick={() => setSelectedCategory("All")}
-                    >
-                      View All
-                    </button>
-                  </div>
-
-                  <div className="product-grid">
-                    {filteredProducts.map((product) => (
-                      <ProductCard
-                        key={product.name}
-                        name={product.name}
-                        price={product.price}
-                        image={product.image}
-                        onAddToCart={() => addToCart(product)}
-                        onAddToWishlist={() => addToWishlist(product)}
-                        onViewDetails={() => setSelectedProduct(product)}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </section>
-
-              <section id="contact" className="contact-section">
-                <div className="container">
-                  <h2>Contact AfriMarket</h2>
-                  <p>
-                    Have a question or need help? Send us a message and our
-                    support team will get back to you.
-                  </p>
-
-                  <form onSubmit={handleContactSubmit}>
-                    <input type="text" placeholder="Your Name" required />
-                    <input
-                      type="email"
-                      placeholder="Your Email"
-                      required
-                    />
-                    <textarea
-                      placeholder="Your Message"
-                      rows="5"
-                      required
-                    />
-                    <button type="submit">Send Message</button>
-                  </form>
-                </div>
-              </section>
-
-              <section id="help" className="help-section">
-                <div className="container">
-                  <h2>FAQ &amp; Help</h2>
-
-                  <div className="faq-item">
-                    <h3>How do I place an order?</h3>
-                    <p>
-                      Browse our products, choose the item you want, add it to
-                      your cart, and continue to checkout to complete your
-                      order.
-                    </p>
-                  </div>
-
-                  <div className="faq-item">
-                    <h3>How can I contact AfriMarket support?</h3>
-                    <p>
-                      You can use our Contact Us form or the floating customer
-                      chat to reach our support team.
-                    </p>
-                  </div>
-
-                  <div className="faq-item">
-                    <h3>How can I become a seller?</h3>
-                    <p>
-                      Select Become a Seller from the navigation menu and
-                      follow the registration process.
-                    </p>
-                  </div>
-
-                  <div className="faq-item">
-                    <h3>What happens after I place an order?</h3>
-                    <p>
-                      Your order will be processed after payment confirmation,
-                      and you will be able to follow its progress through the
-                      order system.
-                    </p>
-                  </div>
-                </div>
-              </section>
             </>
           )}
         </main>
@@ -1019,6 +1007,11 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
+
+
+
 
 
 
