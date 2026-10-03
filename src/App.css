@@ -123,7 +123,7 @@ a {
   font-size: clamp(32px, 5vw, 52px);
   line-height: 0.98;
   letter-spacing: -4px;
-  color: #173d2c;
+  color: transparent;
   margin-bottom: 25px;
 }
 
