@@ -537,7 +537,7 @@ footer p {
   }
 
   .hero h1 {
-    font-size: clamp(36px, 10vw, 48px);
+    font-size: clamp(28px, 8vw, 36px);
     letter-spacing: -2px;
   }
 
@@ -606,4 +606,5 @@ footer p {
     display: none;
   }
 }
+
 
