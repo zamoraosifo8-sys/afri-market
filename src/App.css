@@ -424,10 +424,6 @@ footer p {
     font-size: 22px;
   }
 
-  .header-actions .login {
-    display: none;
-  }
-
   .hero {
     min-height: 600px;
     padding-top: 60px;
@@ -561,7 +557,7 @@ footer p {
 }
 
 .mobile-menu-button {
-  display: none;
+  display: inline-flex;
   border: 0;
   background: transparent;
   font-size: 26px;
@@ -601,12 +597,6 @@ footer p {
   }
 }
 
-@media (max-width: 900px) {
-  .header-actions {
-    display: none;
-  }
-}
-
 
 
 .rainbow-heading {
@@ -622,4 +612,6 @@ footer p {
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
 }
+
+
 
