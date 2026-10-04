@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 
 function ProductDetails({ product, onClose, onAddToCart, onAddToWishlist, isInWishlist = false }) {
   const [rating, setRating] = useState("5");
@@ -66,10 +66,10 @@ function ProductDetails({ product, onClose, onAddToCart, onAddToWishlist, isInWi
       <p>{product.category}</p>
 
       <p>
-        {typeof product.price === "string" && product.price.startsWith("₦")
-          ? product.price
-          : `₦${Number(product.price || 0).toLocaleString()}`}
-      </p>
+  {typeof product.price === "string" && product.price.trim().startsWith("₦")
+    ? product.price
+    : `₦${Number(String(product.price ?? 0).replace(/,/g, "") || 0).toLocaleString()}`}
+</p>
 
       <p>{product.description}</p>
       <hr />
@@ -78,11 +78,11 @@ function ProductDetails({ product, onClose, onAddToCart, onAddToWishlist, isInWi
       <p>Choose a rating:</p>
 
       <select value={rating} onChange={(event) => setRating(event.target.value)}>
-        <option value="5">⭐⭐⭐⭐⭐ 5 Stars</option>
-        <option value="4">⭐⭐⭐⭐ 4 Stars</option>
-        <option value="3">⭐⭐⭐ 3 Stars</option>
-        <option value="2">⭐⭐ 2 Stars</option>
-        <option value="1">⭐ 1 Star</option>
+        <option value="5">â­â­â­â­â­ 5 Stars</option>
+        <option value="4">â­â­â­â­ 4 Stars</option>
+        <option value="3">â­â­â­ 3 Stars</option>
+        <option value="2">â­â­ 2 Stars</option>
+        <option value="1">â­ 1 Star</option>
       </select>
 
       <textarea
@@ -97,7 +97,7 @@ function ProductDetails({ product, onClose, onAddToCart, onAddToWishlist, isInWi
       {reviews.map((review) => (
         <div key={review.id}>
           <p>
-            <strong>Rating:</strong> {"⭐".repeat(Number(review.rating))}
+            <strong>Rating:</strong> {"â­".repeat(Number(review.rating))}
           </p>
           <p>
             <strong>Review:</strong> {review.text}
@@ -112,6 +112,7 @@ function ProductDetails({ product, onClose, onAddToCart, onAddToWishlist, isInWi
 }
 
 export default ProductDetails;
+
 
 
 

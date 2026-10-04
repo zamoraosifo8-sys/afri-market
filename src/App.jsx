@@ -257,7 +257,7 @@ useEffect(() => {
     {
       name: "Premium Ankara Fabric",
       category: "Fashion",
-      price: "â‚¦35,000",
+      price: 35000,
       description:
         "Beautiful African Ankara fabric with vibrant patterns, perfect for clothing and accessories.",
       popular: true,
@@ -267,7 +267,7 @@ useEffect(() => {
     {
       name: "Roasted Nigerian Peanuts",
       category: "Food & Snacks",
-      price: "â‚¦12,000",
+      price: 12000,
       description:
         "Delicious roasted Nigerian peanuts, perfect as an authentic African snack.",
       popular: true,
@@ -277,7 +277,7 @@ useEffect(() => {
     {
       name: "Natural Shea Butter",
       category: "Beauty",
-      price: "â‚¦18,000",
+      price: 18000,
       description:
         "Natural African shea butter that helps moisturize and nourish the skin.",
       popular: true,
@@ -287,7 +287,7 @@ useEffect(() => {
     {
       name: "Handmade Leather Bag",
       category: "Arts & Crafts",
-      price: "â‚¦6,500",
+      price: 6500,
       description:
         "Handcrafted African leather bag made with quality materials and timeless style.",
       popular: true,
