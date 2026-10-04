@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import CustomerLogin from "./CustomerLogin";
 import CustomerProfile from "./CustomerProfile";
 import CustomerRegister from "./CustomerRegister";
@@ -257,7 +257,7 @@ useEffect(() => {
     {
       name: "Premium Ankara Fabric",
       category: "Fashion",
-      price: "₦35,000",
+      price: "â‚¦35,000",
       description:
         "Beautiful African Ankara fabric with vibrant patterns, perfect for clothing and accessories.",
       popular: true,
@@ -267,7 +267,7 @@ useEffect(() => {
     {
       name: "Roasted Nigerian Peanuts",
       category: "Food & Snacks",
-      price: "₦12,000",
+      price: "â‚¦12,000",
       description:
         "Delicious roasted Nigerian peanuts, perfect as an authentic African snack.",
       popular: true,
@@ -277,7 +277,7 @@ useEffect(() => {
     {
       name: "Natural Shea Butter",
       category: "Beauty",
-      price: "₦18,000",
+      price: "â‚¦18,000",
       description:
         "Natural African shea butter that helps moisturize and nourish the skin.",
       popular: true,
@@ -287,7 +287,7 @@ useEffect(() => {
     {
       name: "Handmade Leather Bag",
       category: "Arts & Crafts",
-      price: "₦6,500",
+      price: "â‚¦6,500",
       description:
         "Handcrafted African leather bag made with quality materials and timeless style.",
       popular: true,
@@ -412,7 +412,7 @@ if (alreadySaved) {
     const price =
       typeof item.price === "number"
         ? item.price
-        : parseFloat(String(item.price).replace(/[₦$,]/g, "").trim()) || 0;
+        : parseFloat(String(item.price).replace(/[â‚¦$,]/g, "").trim()) || 0;
 
     return sum + price * (Number(item.quantity) || 0);
   }, 0);
@@ -543,7 +543,7 @@ if (alreadySaved) {
                       image={product.image}
                       onAddToCart={() => addToCart(product)}
                       onAddToWishlist={() => addToWishlist(product)}
-                      onViewDetails={() => { setProductDetailsSource("browse"); setShowBrowseProducts(false); setSelectedProduct(product); }}
+                      onViewDetails={() => { setProductDetailsSource("browse"); setShowShopParent(false); setShowBrowseProducts(false); setSelectedProduct(product); }}
                     />
                   ))}
                 </div>
@@ -591,7 +591,7 @@ if (alreadySaved) {
                         <ul>
                           {(order.items || []).map((item, index) => (
                             <li key={`${item.name}-${index}`}>
-                              {item.name} × {item.quantity}
+                              {item.name} Ã— {item.quantity}
                             </li>
                           ))}
                         </ul>
@@ -607,7 +607,7 @@ if (alreadySaved) {
 
                         <p>
                           <strong>Total:</strong>{" "}
-                          ₦{Number(order.total || 0).toLocaleString()}
+                          â‚¦{Number(order.total || 0).toLocaleString()}
                         </p>
                         <p><strong>Status:</strong> {order.status}</p>
                         <p><strong>Tracking:</strong> {currentStatus}</p>
@@ -616,7 +616,7 @@ if (alreadySaved) {
                           <strong>Tracking Progress:</strong>
                           {trackingStages.map((stage, index) => (
                             <p key={stage}>
-                              {currentStage >= index ? "✅" : "⬜"} {stage}
+                              {currentStage >= index ? "âœ…" : "â¬œ"} {stage}
                             </p>
                           ))}
                         </div>
@@ -996,7 +996,7 @@ if (alreadySaved) {
           <div className="container">
             <h2>AfriMarket</h2>
             <p>Connecting Africa with the world.</p>
-            <p>© 2026 AfriMarket. All rights reserved.</p>
+            <p>Â© 2026 AfriMarket. All rights reserved.</p>
           </div>
         </footer>
       </div>
@@ -1007,6 +1007,7 @@ if (alreadySaved) {
 }
 
 export default App;
+
 
 
 
