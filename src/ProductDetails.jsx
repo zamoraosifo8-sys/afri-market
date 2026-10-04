@@ -78,12 +78,12 @@ function ProductDetails({ product, onClose, onAddToCart, onAddToWishlist, isInWi
       <p>Choose a rating:</p>
 
       <select value={rating} onChange={(event) => setRating(event.target.value)}>
-        <option value="5">â­â­â­â­â­ 5 Stars</option>
-        <option value="4">â­â­â­â­ 4 Stars</option>
-        <option value="3">â­â­â­ 3 Stars</option>
-        <option value="2">â­â­ 2 Stars</option>
-        <option value="1">â­ 1 Star</option>
-      </select>
+  <option value="5">⭐⭐⭐⭐⭐ 5 Stars</option>
+  <option value="4">⭐⭐⭐⭐ 4 Stars</option>
+  <option value="3">⭐⭐⭐ 3 Stars</option>
+  <option value="2">⭐⭐ 2 Stars</option>
+  <option value="1">⭐ 1 Star</option>
+</select>
 
       <textarea
         value={reviewText}
