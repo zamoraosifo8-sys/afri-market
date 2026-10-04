@@ -97,7 +97,7 @@ function ProductDetails({ product, onClose, onAddToCart, onAddToWishlist, isInWi
       {reviews.map((review) => (
         <div key={review.id}>
           <p>
-            <strong>Rating:</strong> {"â­".repeat(Number(review.rating))}
+            <strong>Rating:</strong> {"⭐".repeat(Number(review.rating))}
           </p>
           <p>
             <strong>Review:</strong> {review.text}
