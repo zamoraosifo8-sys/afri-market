@@ -489,7 +489,7 @@ if (alreadySaved) {
 
             {showMobileMenu && (
               <div className="mobile-menu">
-                <button type="button" onClick={() => { setShowMobileMenu(false); setShowShopParent(false); setShowCustomerAccount(false); setShowSellerArea(false); }}>Home</button>
+                <button type="button" onClick={() => { setShowMobileMenu(false); setShowShopParent(false); setShowCustomerAccount(false); setShowSellerArea(false); setShowBrowseProducts(false); setShowHomeSearch(false); setHomeDashboardView(null); setSelectedProduct(null); }}>Home</button>
                 <button type="button" onClick={() => { setShowMobileMenu(false); setShowShopParent(true); setShowCustomerAccount(false); setShowSellerArea(false); }}>Shop</button>
                 <button type="button" onClick={() => { setShowMobileMenu(false); setShowSellerArea(true); setShowShopParent(false); setShowCustomerAccount(false); }}>Become a Seller</button>
                 <button type="button" onClick={() => { setShowMobileMenu(false); setShowCustomerAccount(true); setShowShopParent(false); setShowSellerArea(false); }}>Customer Account</button>
@@ -1007,6 +1007,7 @@ if (alreadySaved) {
 }
 
 export default App;
+
 
 
 
