@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import CustomerProfile from "./CustomerProfile";
 import CustomerRegister from "./CustomerRegister";
+import CustomerLogin from "./CustomerLogin";
 import Admin from "./Admin";
 import AdminLogin from "./AdminLogin";
 import Notifications from "./Notifications";
@@ -1016,6 +1017,7 @@ if (alreadySaved) {
 }
 
 export default App;
+
 
 
 
