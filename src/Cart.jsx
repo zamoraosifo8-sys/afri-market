@@ -48,7 +48,7 @@ function Cart({
   </button>
 </p>
               </div>
-              <strong>{(() => { const price = typeof item.price === "number" ? item.price : parseFloat(String(item.price).replace(/[^\d.]/g, "")) || 0; return `?${(price * (Number(item.quantity) || 0)).toLocaleString()}`; })()}</strong>
+              <strong>{(() => { const price = typeof item.price === "number" ? item.price : parseFloat(String(item.price).replace(/[^\d.]/g, "")) || 0; return String.fromCharCode(0x20A6) + (price * (Number(item.quantity) || 0)).toLocaleString(); })()}</strong>
               <button
                 type="button"
                 onClick={() => onRemove(index)}
@@ -72,4 +72,5 @@ function Cart({
   );
 }
 export default Cart;
+
 
