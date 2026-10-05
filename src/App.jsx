@@ -825,54 +825,15 @@ if (alreadySaved) {
                   orderHistory={orderHistory}
                 />
               ) : (
-                <section className="hero">
-                  <div className="container hero-content">
-                    <p className="eyebrow">AUTHENTIC PRODUCTS FROM AFRICA</p>
-                    <h1 className="rainbow-heading">Africa is closer than you think.</h1>
-                    <p className="hero-text">
-                      Discover authentic products made by African artisans,
-                      brands, and businesses. Order from home and have them
-                      delivered to your doorstep anywhere in the world.
-                    </p>
-
-                    <div className="home-shortcuts">
-                      <button
-                        type="button"
-                        onClick={() => setShowHomeSearch((open) => !open)}
-                      >
-                        SEARCH
-                      </button>
-                    </div>
-
-                    {showHomeSearch && (
-                      <div className="search-box">
-                        <input
-                          type="text"
-                          placeholder="Search for products..."
-                          value={searchTerm}
-                          list="afriMarketProductSuggestions"
-                          onChange={(event) => setSearchTerm(event.target.value)}
-                        />
-
-                        <datalist id="afriMarketProductSuggestions">
-                          {[...products, ...sellerProducts].map((product) => (
-                            <option key={product.name} value={product.name} />
-                          ))}
-                        </datalist>
-
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setHomeDashboardView("search");
-                            setSelectedCategory("All");
-                          }}
-                        >
-                          Search
-                        </button>
-                      </div>
-                    )}
-                    </div>
-                </section>
+                <section className="homepage-ads">
+  <div className="homepage-ad-stack">
+    {[...products, ...sellerProducts].filter((product) => product?.image).map((product, index) => (
+      <button key={product.name + "-" + index} type="button" className="homepage-ad-image" onClick={() => { setSelectedProduct(product); setProductDetailsSource("home"); }}>
+        <img src={product.image} alt={product.name} />
+      </button>
+    ))}
+  </div>
+</section>
               )}
               {homeDashboardView && (
                 <section className="home-dashboard">
@@ -1004,6 +965,7 @@ if (alreadySaved) {
 }
 
 export default App;
+
 
 
 

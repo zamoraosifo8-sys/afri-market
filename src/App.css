@@ -664,3 +664,54 @@ footer p {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
 
+
+ /* HOMEPAGE PRODUCT AD SHOWCASE */
+.homepage-ads {
+  width: 100%;
+  padding: 24px 0 70px;
+  background: #fffaf3;
+}
+
+.homepage-ad-stack {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.homepage-ad-image {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.homepage-ad-image img {
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.homepage-ad-image:hover img {
+  opacity: 0.94;
+}
+
+@media (max-width: 600px) {
+  .homepage-ads {
+    padding: 12px 0 60px;
+  }
+
+  .homepage-ad-stack {
+    gap: 10px;
+  }
+
+  .homepage-ad-image img {
+    height: 250px;
+  }
+}
