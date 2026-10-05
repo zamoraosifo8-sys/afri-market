@@ -48,11 +48,7 @@ function Cart({
   </button>
 </p>
               </div>
-              <strong>
-                {typeof item.price === "number"
-                  ? `₦${item.price.toLocaleString()}`
-                  : item.price}
-              </strong>
+              <strong>{(() => { const price = typeof item.price === "number" ? item.price : parseFloat(String(item.price).replace(/[^\d.]/g, "")) || 0; return `?${(price * (Number(item.quantity) || 0)).toLocaleString()}`; })()}</strong>
               <button
                 type="button"
                 onClick={() => onRemove(index)}
@@ -76,3 +72,4 @@ function Cart({
   );
 }
 export default Cart;
+
