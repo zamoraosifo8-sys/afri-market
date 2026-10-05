@@ -984,6 +984,15 @@ if (alreadySaved) {
 
 
 
+        {!showCart && !showCheckout && cartItems.length > 0 && (
+          <button
+            type="button"
+            className="floating-cart"
+            onClick={() => setShowCart(true)}
+          >
+            ?? Cart ({cartItems.reduce((total, item) => total + (Number(item.quantity) || 0), 0)})
+          </button>
+        )}
         <footer className="footer">
           <div className="container">
             <h2>AfriMarket</h2>
@@ -999,6 +1008,8 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
 
 
 
