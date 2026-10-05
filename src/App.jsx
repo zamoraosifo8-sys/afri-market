@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
-import CustomerLogin from "./CustomerLogin";
+
+
+
+
 import CustomerProfile from "./CustomerProfile";
 import CustomerRegister from "./CustomerRegister";
 import Admin from "./Admin";
@@ -829,14 +832,7 @@ if (alreadySaved) {
                         SEARCH
                       </button>
 
-                      <button
-                        type="button"
-                        onClick={() => setShowBrowseProducts(true)}
-                      >
-                        SHOP AFRICA
-                      </button>
-
-                      <button
+<button
                         type="button"
                         onClick={() => setHomeDashboardView("contact")}
                       >
@@ -1003,6 +999,8 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
 
 
 
