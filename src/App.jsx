@@ -496,7 +496,6 @@ if (alreadySaved) {
                 <button type="button" onClick={() => { setShowMobileMenu(false); setShowShopParent(false); setShowCustomerAccount(false); setShowSellerArea(false); setShowBrowseProducts(false); setShowHomeSearch(false); setHomeDashboardView(null); setSelectedProduct(null); }}>Home</button>
                 <button type="button" onClick={() => { setShowMobileMenu(false); setShowShopParent(true); setShowCustomerAccount(false); setShowSellerArea(false); }}>Shop</button>
                 <button type="button" onClick={() => { setShowMobileMenu(false); setShowSellerArea(true); setShowShopParent(false); setShowCustomerAccount(false); }}>Become a Seller</button>
-                <button type="button" onClick={() => { setShowMobileMenu(false); setShowCustomerAccount(true); setShowShopParent(false); setShowSellerArea(false); }}>Customer Account</button>
               </div>
             )}
 
@@ -841,20 +840,6 @@ if (alreadySaved) {
                       >
                         SEARCH
                       </button>
-
-<button
-                        type="button"
-                        onClick={() => setHomeDashboardView("contact")}
-                      >
-                        CONTACT US
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() => setHomeDashboardView("help")}
-                      >
-                        FAQ &amp; HELP
-                      </button>
                     </div>
 
                     {showHomeSearch && (
@@ -1017,6 +1002,9 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
+
 
 
 
