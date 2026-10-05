@@ -735,6 +735,15 @@ if (alreadySaved) {
                 )}
               </div>
             </section>
+          ) : showCustomerAccount ? (
+            <section className="customer-account-dashboard">
+              <h2>Customer Account</h2>
+              <p>Choose an option:</p>
+              <div className="customer-account-actions">
+                <button type="button" onClick={() => { setShowCustomerAccount(false); setShowCustomerLogin(true); }}>Login</button>
+                <button type="button" onClick={() => { setShowCustomerAccount(false); setShowCustomerRegister(true); }}>Sign Up</button>
+              </div>
+            </section>
           ) : showCustomerLogin ? (
             <CustomerLogin />
           ) : showCustomerRegister ? (
@@ -1007,6 +1016,8 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
 
 
 
