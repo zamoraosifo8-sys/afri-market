@@ -496,6 +496,8 @@ if (alreadySaved) {
                 <button type="button" onClick={() => { setShowMobileMenu(false); setShowShopParent(false); setShowCustomerAccount(false); setShowSellerArea(false); setShowBrowseProducts(false); setShowHomeSearch(false); setHomeDashboardView(null); setSelectedProduct(null); }}>Home</button>
                 <button type="button" onClick={() => { setShowMobileMenu(false); setShowShopParent(true); setShowCustomerAccount(false); setShowSellerArea(false); }}>Shop</button>
                 <button type="button" onClick={() => { setShowMobileMenu(false); setShowSellerArea(true); setShowShopParent(false); setShowCustomerAccount(false); }}>Become a Seller</button>
+                <button type="button" onClick={() => { setShowMobileMenu(false); setHomeDashboardView("contact"); }}>Contact Us</button>
+                <button type="button" onClick={() => { setShowMobileMenu(false); setHomeDashboardView("help"); }}>FAQ &amp; Help</button>
               </div>
             )}
 
@@ -1002,6 +1004,8 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
 
 
 
