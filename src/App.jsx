@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
@@ -415,7 +415,7 @@ if (alreadySaved) {
     const price =
       typeof item.price === "number"
         ? item.price
-        : parseFloat(String(item.price).replace(/[â‚¦$,]/g, "").trim()) || 0;
+        : parseFloat(String(item.price).replace(/[₦$,]/g, "").trim()) || 0;
 
     return sum + price * (Number(item.quantity) || 0);
   }, 0);
@@ -592,7 +592,7 @@ if (alreadySaved) {
                         <ul>
                           {(order.items || []).map((item, index) => (
                             <li key={`${item.name}-${index}`}>
-                              {item.name} Ã— {item.quantity}
+                              {item.name} × {item.quantity}
                             </li>
                           ))}
                         </ul>
@@ -608,7 +608,7 @@ if (alreadySaved) {
 
                         <p>
                           <strong>Total:</strong>{" "}
-                          â‚¦{Number(order.total || 0).toLocaleString()}
+                          ₦{Number(order.total || 0).toLocaleString()}
                         </p>
                         <p><strong>Status:</strong> {order.status}</p>
                         <p><strong>Tracking:</strong> {currentStatus}</p>
@@ -617,7 +617,7 @@ if (alreadySaved) {
                           <strong>Tracking Progress:</strong>
                           {trackingStages.map((stage, index) => (
                             <p key={stage}>
-                              {currentStage >= index ? "âœ…" : "â¬œ"} {stage}
+                              {currentStage >= index ? "✅" : "⬜"} {stage}
                             </p>
                           ))}
                         </div>
@@ -989,15 +989,14 @@ if (alreadySaved) {
             type="button"
             className="floating-cart"
             onClick={() => setShowCart(true)}
-          >
-            {"\uD83D\uDED2"} {cartItems.reduce((total, item) => total + (Number(item.quantity) || 0), 0)} • {"\u20A6"}{cartItems.reduce((total, item) => { const price = typeof item.price === "number" ? item.price : parseFloat(String(item.price).replace(/[^\d.]/g, "")) || 0; return total + price * (Number(item.quantity) || 0); }, 0).toLocaleString()}
+          >            {"\uD83D\uDED2"} {cartItems.reduce((total, item) => total + (Number(item.quantity) || 0), 0)} {String.fromCharCode(0x2022)} {String.fromCharCode(0x20A6)}{cartItems.reduce((total, item) => { const price = typeof item.price === "number" ? item.price : parseFloat(String(item.price).replace(/[^\d.]/g, "")) || 0; return total + price * (Number(item.quantity) || 0); }, 0).toLocaleString()}
           </button>
         )}
         <footer className="footer">
           <div className="container">
             <h2>AfriMarket</h2>
             <p>Connecting Africa with the world.</p>
-            <p>Â© 2026 AfriMarket. All rights reserved.</p>
+            <p>© 2026 AfriMarket. All rights reserved.</p>
           </div>
         </footer>
       </div>
@@ -1008,6 +1007,8 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
 
 
 
