@@ -1,4 +1,4 @@
-﻿* {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -642,4 +642,25 @@ footer p {
 
 
 
+
+
+
+
+
+.floating-cart {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 1000;
+  width: calc(100% - 24px);
+  padding: 14px 18px;
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
 
