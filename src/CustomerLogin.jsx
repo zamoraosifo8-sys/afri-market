@@ -50,7 +50,7 @@ function CustomerLogin({ onBack }) {
   return (
     <div>
       {onBack && (
-        <button type="button" onClick={onBack}>Back to Account</button>
+        <button type="button" onClick={onBack}>&#128281; Back</button>
       )}
 
       <h2>Customer Login</h2>
@@ -76,6 +76,7 @@ function CustomerLogin({ onBack }) {
 }
 
 export default CustomerLogin;
+
 
 
 
