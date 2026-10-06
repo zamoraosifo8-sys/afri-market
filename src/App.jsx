@@ -1107,7 +1107,7 @@ if (alreadySaved) {
           <div className="container">
             <h2>AfriMarket</h2>
             <p>Connecting Africa with the world.</p>
-            <p>© 2026 AfriMarket. All rights reserved.</p>
+            <p>&#169; 2026 AfriMarket. All rights reserved.</p>
           </div>
         </footer>
       </div>
@@ -1118,6 +1118,10 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
+
+
 
 
 
