@@ -1013,7 +1013,7 @@ if (alreadySaved) {
                   isInWishlist={wishlistItems.some((item) => item.name === selectedProduct?.name)}
                   orderHistory={orderHistory}
                 />
-              ) : (
+              ) : !homeDashboardView ? (
                 <section className="homepage-ads">
   <div className="homepage-ad-stack">
     {[...products, ...sellerProducts].filter((product) => product?.image).map((product, index) => (
@@ -1022,7 +1022,7 @@ if (alreadySaved) {
     ))}
   </div>
 </section>
-              )}
+              ) : null}
               {homeDashboardView && (
                 <section className="home-dashboard">
                   <div className="container">
@@ -1153,6 +1153,8 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
 
 
 
