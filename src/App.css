@@ -487,13 +487,7 @@ footer p {
   margin-right: auto;
 }
 
-.header-inner {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
+.header-inner { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
 .nav {
   display: flex;
@@ -582,8 +576,7 @@ footer p {
   }
 }
 
-.mobile-menu { display: flex;
-  flex-direction: column;
+.mobile-menu { display: flex; flex-direction: column; flex-basis: 100%;
   gap: 4px;
   width: 100%;
   padding: 10px 0 14px;
@@ -705,6 +698,7 @@ footer p {
     height: 250px;
   }
 }
+
 
 
 
