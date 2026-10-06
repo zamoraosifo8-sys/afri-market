@@ -66,9 +66,7 @@ function App() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showCustomerLogin, setShowCustomerLogin] = useState(false);
   const [showCustomerRegister, setShowCustomerRegister] = useState(false);
- const [showCheckout, setShowCheckout] = useState(() =>
-  new URLSearchParams(window.location.search).has("reference")
-);
+  const [showCheckout, setShowCheckout] = useState(false);
   const [showSellerRegister, setShowSellerRegister] = useState(false);
   const [showSellerArea, setShowSellerArea] = useState(false);
   const [showSellerLogin, setShowSellerLogin] = useState(false);
