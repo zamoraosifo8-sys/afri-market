@@ -16,7 +16,6 @@ function PasswordInput(props) {
         type={showPassword ? "text" : "password"}
         style={{
           ...props.style,
-          width: "100%",
           boxSizing: "border-box",
           paddingRight: "3rem",
         }}
@@ -48,3 +47,4 @@ function PasswordInput(props) {
 }
 
 export default PasswordInput;
+
