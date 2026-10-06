@@ -582,46 +582,36 @@ footer p {
   }
 }
 
-.mobile-menu {
-  display: none;
+.mobile-menu { display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  padding: 10px 0 14px;
+  border-top: 1px solid #e5e7eb;
 }
 
-@media (max-width: 900px) {
-  .mobile-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    width: 100%;
-    padding: 10px 0 14px;
-    border-top: 1px solid #e5e7eb;
-  }
-
-  .mobile-menu button {
-    background: #ffffff;
-    color: #173d2c;
-    appearance: none;
-    -webkit-appearance: none;
-    display: block;
-    width: 100%;
-    padding: 12px 8px;
-    font-size: 15px;
-    font-weight: 600;
-    text-align: left;
-    border: 0;
-    cursor: pointer;
-  }
-
-  .mobile-menu a {
-    display: block;
-    padding: 12px 8px;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-  }
+.mobile-menu button {
+  background: #ffffff;
+  color: #173d2c;
+  appearance: none;
+  -webkit-appearance: none;
+  display: block;
+  width: 100%;
+  padding: 12px 8px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  border: 0;
+  cursor: pointer;
 }
 
-
-
+.mobile-menu a {
+  display: block;
+  padding: 12px 8px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
 .rainbow-heading {
   background: linear-gradient(90deg, #ff0000, #ff8c00, #ffd700, #00a000, #008cff, #7a00ff, #ff1493);
   background-size: 300% 100%;
@@ -715,3 +705,8 @@ footer p {
     height: 250px;
   }
 }
+
+
+
+
+
