@@ -63,7 +63,7 @@ function ProductDetails({
     <section className="product-details">
       <div className="product-details-header">
         <button type="button" onClick={onClose}>
-          Back to Shop
+          ?? Back
         </button>
         <h1>Product Details</h1>
       </div>
@@ -149,5 +149,6 @@ function ProductDetails({
 }
 
 export default ProductDetails;
+
 
 
