@@ -1,4 +1,4 @@
-* {
+﻿* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -33,6 +33,16 @@ a {
 
 .app {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app > :not(footer):not(.footer) {
+  flex: 0 0 auto;
+}
+
+.footer {
+  margin-top: auto;
 }
 
 /* HEADER */
@@ -693,6 +703,7 @@ footer p {
     height: 250px;
   }
 }
+
 
 
 
