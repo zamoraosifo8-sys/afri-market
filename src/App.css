@@ -718,7 +718,7 @@ footer p {
 
 .search-input-wrapper {
   position: relative;
-  width: fit-content;
+  width: 100%;
 }
 
 .search-suggestions {
@@ -760,6 +760,7 @@ footer p {
   margin: 0;
   padding: 12px 14px;
 }
+
 
 
 
