@@ -487,7 +487,7 @@ footer p {
   margin-right: auto;
 }
 
-.header-inner { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.header-inner { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; position: relative; }
 
 .nav {
   display: flex;
@@ -576,12 +576,7 @@ footer p {
   }
 }
 
-.mobile-menu { display: flex; flex-direction: column; flex-basis: 100%;
-  gap: 4px;
-  width: 100%;
-  padding: 10px 0 14px;
-  border-top: 1px solid #e5e7eb;
-}
+.mobile-menu { position: absolute; top: 100%; right: 0; z-index: 1000; display: flex; flex-direction: column; gap: 4px; width: 260px; padding: 10px 12px 14px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 0 0 10px 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.12); }
 
 .mobile-menu button {
   background: #ffffff;
@@ -698,6 +693,7 @@ footer p {
     height: 250px;
   }
 }
+
 
 
 
