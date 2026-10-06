@@ -636,7 +636,6 @@ if (alreadySaved) {
               <div className="container">
                 <h1>Search AfriMarket</h1>
                 <div className="home-search-form">
-                  <div className="search-input-wrapper">
                   <input
                     type="search"
                     value={searchTerm}
@@ -674,7 +673,6 @@ if (alreadySaved) {
                     </div>
                   )}
 
-                  </div>
                   <button
                     type="button"
                     onClick={() => setHomeDashboardView("search")}

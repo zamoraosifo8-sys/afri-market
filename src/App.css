@@ -716,11 +716,15 @@ footer p {
   position: relative;
 }
 
+.search-input-wrapper {
+  position: relative;
+}
+
 .search-suggestions {
   position: absolute;
   top: calc(100% + 4px);
   left: 0;
-  right: 0;
+  width: 100%;
   z-index: 20;
   background: #fff;
   border: 1px solid #ddd;
@@ -755,3 +759,6 @@ footer p {
   margin: 0;
   padding: 12px 14px;
 }
+
+
+
