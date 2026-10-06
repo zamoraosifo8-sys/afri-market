@@ -5,6 +5,7 @@ function ProductDetails({
   onClose,
   onAddToCart,
   onAddToWishlist,
+  onRemoveFromWishlist,
   isInWishlist = false,
 }) {
   const [rating, setRating] = useState("5");
@@ -96,7 +97,7 @@ function ProductDetails({
 
             <button
               type="button"
-              onClick={() => onAddToWishlist(product)}
+              onClick={() => isInWishlist ? onRemoveFromWishlist(product.name) : onAddToWishlist(product)}
             >
               {isInWishlist ? "Remove from Wishlist" : "Wishlist"}
             </button>
@@ -148,4 +149,5 @@ function ProductDetails({
 }
 
 export default ProductDetails;
+
 
