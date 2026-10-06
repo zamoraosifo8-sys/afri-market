@@ -986,8 +986,9 @@ if (alreadySaved) {
                             removeFromWishlist(product.name)
                           }
                           onViewDetails={() => {
+                            setProductDetailsSource("wishlist");
                             setSelectedProduct(product);
-                          }}
+                           }}
                         />
                         <button type="button" onClick={() => removeFromWishlist(product.name)}>
   Remove from Wishlist
