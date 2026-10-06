@@ -1,6 +1,6 @@
 ﻿import { useState } from "react";
 import PasswordInput from "./PasswordInput";
-function CustomerLogin({ onBack }) {
+function CustomerLogin({ onBack, onLoggedIn }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -40,7 +40,11 @@ function CustomerLogin({ onBack }) {
       );
       localStorage.setItem("afriMarketCustomerToken", data.token);
 
-      alert("Login successful! Welcome back to AfriMarket ðŸŽ‰");
+      alert("Login successful! Welcome back to AfriMarket");
+
+      if (onLoggedIn) {
+        onLoggedIn();
+      }
     } catch (error) {
       console.error("Customer login error:", error);
       alert("Could not connect to AfriMarket. Please try again.");
@@ -76,6 +80,9 @@ function CustomerLogin({ onBack }) {
 }
 
 export default CustomerLogin;
+
+
+
 
 
 

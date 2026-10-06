@@ -1,6 +1,6 @@
 ﻿import { useState } from "react";
 import PasswordInput from "./PasswordInput";
-function CustomerRegister({ onBack }) {
+function CustomerRegister({ onBack, onRegistered }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -47,6 +47,10 @@ function CustomerRegister({ onBack }) {
       setName("");
       setEmail("");
       setPassword("");
+
+      if (onRegistered) {
+        onRegistered();
+      }
     } catch (error) {
       console.error("Customer registration error:", error);
       alert("Could not connect to AfriMarket. Please try again.");
@@ -89,5 +93,8 @@ function CustomerRegister({ onBack }) {
 }
 
 export default CustomerRegister;
+
+
+
 
 

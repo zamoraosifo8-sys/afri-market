@@ -903,9 +903,9 @@ if (alreadySaved) {
               </div>
             </section>
           ) : showCustomerLogin ? (
-            <CustomerLogin onBack={() => { setShowCustomerLogin(false); setShowCustomerAccount(true); }} />
+            <CustomerLogin onBack={() => { setShowCustomerLogin(false); setShowCustomerAccount(true); }} onLoggedIn={() => { setShowCustomerLogin(false); }} />
           ) : showCustomerRegister ? (
-            <CustomerRegister onBack={() => { setShowCustomerRegister(false); setShowCustomerAccount(true); }} />
+            <CustomerRegister onBack={() => { setShowCustomerRegister(false); setShowCustomerAccount(true); }} onRegistered={() => { setShowCustomerRegister(false); setShowCustomerLogin(true); }} />
           ) : showSellerArea ? (
             <SellerArea onRegister={() => { setShowSellerRegister(true); setShowSellerArea(false); }} onLogin={() => { setShowSellerLogin(true); setShowSellerArea(false); }} />
           ) : showSellerRegister ? (
@@ -1120,6 +1120,8 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
 
 
 
