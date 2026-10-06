@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 
 
 
@@ -416,7 +416,7 @@ if (alreadySaved) {
     const price =
       typeof item.price === "number"
         ? item.price
-        : parseFloat(String(item.price).replace(/[₦$,]/g, "").trim()) || 0;
+        : parseFloat(String(item.price).replace(/[â‚¦$,]/g, "").trim()) || 0;
 
     return sum + price * (Number(item.quantity) || 0);
   }, 0);
@@ -498,7 +498,7 @@ if (alreadySaved) {
                   setShowCheckout(false);
                 }}
               >
-                ??
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
               </button>
 
               <button
@@ -514,7 +514,7 @@ if (alreadySaved) {
                   setShowCheckout(false);
                 }}
               >
-                ??
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"></path></svg>
               </button>
 
               <button
@@ -530,7 +530,7 @@ if (alreadySaved) {
                   setShowCheckout(false);
                 }}
               >
-                ?
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.8c0 5.5-8.8 10.2-8.8 10.2S3.2 14.3 3.2 8.8A4.8 4.8 0 0 1 12 6.2a4.8 4.8 0 0 1 8.8 2.6Z"></path></svg>
               </button>
 
               <button
@@ -546,7 +546,7 @@ if (alreadySaved) {
                   setShowCheckout(false);
                 }}
               >
-                ??
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2 12h10l3-9H6"></path><circle cx="9" cy="20" r="1.5"></circle><circle cx="18" cy="20" r="1.5"></circle></svg>
               </button>
 
               <button
@@ -744,7 +744,7 @@ if (alreadySaved) {
                         <ul>
                           {(order.items || []).map((item, index) => (
                             <li key={`${item.name}-${index}`}>
-                              {item.name} × {item.quantity}
+                              {item.name} Ã— {item.quantity}
                             </li>
                           ))}
                         </ul>
@@ -760,7 +760,7 @@ if (alreadySaved) {
 
                         <p>
                           <strong>Total:</strong>{" "}
-                          ₦{Number(order.total || 0).toLocaleString()}
+                          â‚¦{Number(order.total || 0).toLocaleString()}
                         </p>
                         <p><strong>Status:</strong> {order.status}</p>
                         <p><strong>Tracking:</strong> {currentStatus}</p>
@@ -769,7 +769,7 @@ if (alreadySaved) {
                           <strong>Tracking Progress:</strong>
                           {trackingStages.map((stage, index) => (
                             <p key={stage}>
-                              {currentStage >= index ? "✅" : "⬜"} {stage}
+                              {currentStage >= index ? "âœ…" : "â¬œ"} {stage}
                             </p>
                           ))}
                         </div>
@@ -979,8 +979,7 @@ if (alreadySaved) {
   <div className="homepage-ad-stack">
     {[...products, ...sellerProducts].filter((product) => product?.image).map((product, index) => (
       <button key={product.name + "-" + index} type="button" className="homepage-ad-image" onClick={() => { setSelectedProduct(product); setProductDetailsSource("home"); }}>
-        <img src={product.image} alt={product.name} />
-      </button>
+        <img src={product.image} alt={product.name} />`n                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>`n              </button>
     ))}
   </div>
 </section>
@@ -1104,7 +1103,7 @@ if (alreadySaved) {
           <div className="container">
             <h2>AfriMarket</h2>
             <p>Connecting Africa with the world.</p>
-            <p>© 2026 AfriMarket. All rights reserved.</p>
+            <p>Â© 2026 AfriMarket. All rights reserved.</p>
           </div>
         </footer>
       </div>
@@ -1115,6 +1114,10 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
+
+
 
 
 
