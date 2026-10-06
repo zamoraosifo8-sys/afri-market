@@ -1,6 +1,6 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import PasswordInput from "./PasswordInput";
-function CustomerRegister() {
+function CustomerRegister({ onBack }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,7 +42,7 @@ function CustomerRegister() {
         return alert(data.message || "Registration failed.");
       }
 
-      alert("Registration successful! Welcome to AfriMarket 🎉");
+      alert("Registration successful! Welcome to AfriMarket ðŸŽ‰");
 
       setName("");
       setEmail("");
@@ -55,6 +55,10 @@ function CustomerRegister() {
 
   return (
     <div>
+      {onBack && (
+        <button type="button" onClick={onBack}>&#128281; Back</button>
+      )}
+
       <h2>Create AfriMarket Account</h2>
 
       <form onSubmit={handleRegister}>
@@ -85,3 +89,5 @@ function CustomerRegister() {
 }
 
 export default CustomerRegister;
+
+

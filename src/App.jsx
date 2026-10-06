@@ -903,7 +903,7 @@ if (alreadySaved) {
           ) : showCustomerLogin ? (
             <CustomerLogin onBack={() => { setShowCustomerLogin(false); setShowCustomerAccount(true); }} />
           ) : showCustomerRegister ? (
-            <CustomerRegister />
+            <CustomerRegister onBack={() => { setShowCustomerRegister(false); setShowCustomerAccount(true); }} />
           ) : showSellerArea ? (
             <SellerArea onRegister={() => { setShowSellerRegister(true); setShowSellerArea(false); }} onLogin={() => { setShowSellerLogin(true); setShowSellerArea(false); }} />
           ) : showSellerRegister ? (
@@ -1118,6 +1118,7 @@ if (alreadySaved) {
 }
 
 export default App;
+
 
 
 
