@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 
 
 
@@ -416,7 +416,7 @@ if (alreadySaved) {
     const price =
       typeof item.price === "number"
         ? item.price
-        : parseFloat(String(item.price).replace(/[₦$,]/g, "").trim()) || 0;
+        : parseFloat(String(item.price).replace(/[â‚¦$,]/g, "").trim()) || 0;
 
     return sum + price * (Number(item.quantity) || 0);
   }, 0);
@@ -748,7 +748,7 @@ if (alreadySaved) {
                         <ul>
                           {(order.items || []).map((item, index) => (
                             <li key={`${item.name}-${index}`}>
-                              {item.name} × {item.quantity}
+                              {item.name} Ã— {item.quantity}
                             </li>
                           ))}
                         </ul>
@@ -764,7 +764,7 @@ if (alreadySaved) {
 
                         <p>
                           <strong>Total:</strong>{" "}
-                          ₦{Number(order.total || 0).toLocaleString()}
+                          â‚¦{Number(order.total || 0).toLocaleString()}
                         </p>
                         <p><strong>Status:</strong> {order.status}</p>
                         <p><strong>Tracking:</strong> {currentStatus}</p>
@@ -773,7 +773,7 @@ if (alreadySaved) {
                           <strong>Tracking Progress:</strong>
                           {trackingStages.map((stage, index) => (
                             <p key={stage}>
-                              {currentStage >= index ? "✅" : "⬜"} {stage}
+                              {currentStage >= index ? "âœ…" : "â¬œ"} {stage}
                             </p>
                           ))}
                         </div>
@@ -896,7 +896,7 @@ if (alreadySaved) {
               <h2>Customer Account</h2>
               <p>Choose an option:</p>
               <div className="customer-account-actions">
-                <button type="button" onClick={() => { setShowCustomerAccount(false); setShowCustomerLogin(true); }}>Login</button>
+                <button type="button" onClick={() => { setShowCustomerAccount(false); setShowCustomerRegister(false); setShowCustomerLogin(true); }}>Login</button>
                 <button type="button" onClick={() => { setShowCustomerAccount(false); setShowCustomerRegister(true); }}>Sign Up</button>
               </div>
             </section>
@@ -1118,6 +1118,7 @@ if (alreadySaved) {
 }
 
 export default App;
+
 
 
 
