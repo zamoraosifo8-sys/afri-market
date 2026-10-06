@@ -78,9 +78,9 @@ function ProductDetails({
 
           <p className="product-details-price">
             {typeof product.price === "string" &&
-            product.price.trim().startsWith("?")
+            product.price.trim().startsWith("\u20A6")
               ? product.price
-              : `?${Number(
+              : `\u20A6${Number(
                   String(product.price ?? 0).replace(/,/g, "") || 0
                 ).toLocaleString()}`}
           </p>
@@ -113,11 +113,11 @@ function ProductDetails({
           value={rating}
           onChange={(event) => setRating(event.target.value)}
         >
-          <option value="5">????? 5 Stars</option>
-          <option value="4">???? 4 Stars</option>
-          <option value="3">??? 3 Stars</option>
-          <option value="2">?? 2 Stars</option>
-          <option value="1">? 1 Star</option>
+          <option value="5">{"\u2B50".repeat(5)} 5 Stars</option>
+          <option value="4">{"\u2B50".repeat(4)} 4 Stars</option>
+          <option value="3">{"\u2B50".repeat(3)} 3 Stars</option>
+          <option value="2">{"\u2B50".repeat(2)} 2 Stars</option>
+          <option value="1">{"\u2B50"} 1 Star</option>
         </select>
 
         <textarea
@@ -135,7 +135,7 @@ function ProductDetails({
           <div key={review.id} className="product-review">
             <p>
               <strong>Rating:</strong>{" "}
-              {"?".repeat(Number(review.rating))}
+              {"\u2B50".repeat(Number(review.rating))}
             </p>
             <p>
               <strong>Review:</strong> {review.text}
