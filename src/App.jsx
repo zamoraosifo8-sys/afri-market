@@ -901,7 +901,7 @@ if (alreadySaved) {
               </div>
             </section>
           ) : showCustomerLogin ? (
-            <CustomerLogin />
+            <CustomerLogin onBack={() => { setShowCustomerLogin(false); setShowCustomerAccount(true); }} />
           ) : showCustomerRegister ? (
             <CustomerRegister />
           ) : showSellerArea ? (
@@ -1118,6 +1118,7 @@ if (alreadySaved) {
 }
 
 export default App;
+
 
 
 
