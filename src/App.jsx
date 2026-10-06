@@ -644,6 +644,35 @@ if (alreadySaved) {
                     aria-label="Search products"
                     autoFocus
                   />
+
+                  {searchTerm.trim() && (
+                    <div className="search-suggestions">
+                      {filteredProducts.length > 0 ? (
+                        filteredProducts.slice(0, 5).map((product) => (
+                          <button
+                            key={product.name}
+                            type="button"
+                            className="search-suggestion"
+                            onClick={() => {
+                              setProductDetailsSource("home-search");
+                              setSelectedProduct(product);
+                              setSearchTerm("");
+                            }}
+                          >
+                            <span>{product.name}</span>
+                            <span>
+                              {"\u20A6"}{Number(product.price || 0).toLocaleString()}
+                            </span>
+                          </button>
+                        ))
+                      ) : (
+                        <p className="search-no-suggestions">
+                          No products found.
+                        </p>
+                      )}
+                    </div>
+                  )}
+
                   <button
                     type="button"
                     onClick={() => setHomeDashboardView("search")}
