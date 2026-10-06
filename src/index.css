@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
@@ -320,11 +320,30 @@ select {
   min-height: 64px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
   padding: 10px 16px;
   box-sizing: border-box;
   position: relative;
+}
+
+.logo {
+  flex: 0 0 auto;
+  text-align: left;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-h);
+  white-space: nowrap;
+}
+
+.header-actions {
+  margin-left: auto;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-actions button {
+  flex: 0 0 auto;
 }
 
 .mobile-menu-button {
@@ -335,22 +354,6 @@ select {
   line-height: 1;
   cursor: pointer;
   padding: 6px;
-}
-
-.logo {
-  flex: 1 1 auto;
-  text-align: center;
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--text-h);
-  white-space: nowrap;
-}
-
-.header-actions {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
 .mobile-menu {
@@ -376,3 +379,4 @@ select {
     font-size: 20px;
   }
 }
+

@@ -480,61 +480,211 @@ if (alreadySaved) {
       <div>
         <header className="header">
           <div className="container header-inner">
-            <button
-              type="button"
-              className="mobile-menu-button"
-              onClick={() => setShowMobileMenu((open) => !open)}
-              aria-label="Open menu"
-            >
-              &#9776;
-            </button>
-
-            <div className="logo">AfriMarket</div>
-
-            {showMobileMenu && (
-              <div className="mobile-menu">
-                <button type="button" onClick={() => { setShowMobileMenu(false); setShowShopParent(false); setShowCustomerAccount(false); setShowSellerArea(false); setShowBrowseProducts(false); setShowHomeSearch(false); setHomeDashboardView(null); setSelectedProduct(null); }}>Home</button>
-                <button type="button" onClick={() => { setShowMobileMenu(false); setShowShopParent(true); setShowCustomerAccount(false); setShowSellerArea(false); }}>Shop</button>
-                <button type="button" onClick={() => { setShowMobileMenu(false); setShowSellerArea(true); setShowShopParent(false); setShowCustomerAccount(false); }}>Become a Seller</button>
-                <button type="button" onClick={() => { setShowMobileMenu(false); setHomeDashboardView("contact"); }}>Contact Us</button>
-                <button type="button" onClick={() => { setShowMobileMenu(false); setHomeDashboardView("help"); }}>FAQ &amp; Help</button>
-              </div>
-            )}
+            <div className="logo" aria-label="AfriMarket">AfriMarket</div>
 
             <div className="header-actions">
               <button
                 type="button"
+                aria-label="Search"
+                title="Search"
                 onClick={() => {
-                  setShowCustomerRegister(true);
-                  setShowCustomerLogin(false);
-                  setShowOrderHistory(false);
-                  setShowWishlist(false);
+                  setShowHomeSearch(true);
+                  setHomeDashboardView(null);
                   setShowCart(false);
+                  setShowWishlist(false);
+                  setShowCustomerAccount(false);
+                  setShowCustomerLogin(false);
+                  setShowCustomerRegister(false);
                   setShowCheckout(false);
                 }}
               >
-                Sign Up
+                ??
               </button>
 
               <button
                 type="button"
+                aria-label="Account"
+                title="Account"
                 onClick={() => {
-                  setShowCustomerLogin(true);
+                  setShowCustomerAccount(true);
+                  setShowCustomerLogin(false);
                   setShowCustomerRegister(false);
-                  setShowOrderHistory(false);
-                  setShowWishlist(false);
                   setShowCart(false);
+                  setShowWishlist(false);
                   setShowCheckout(false);
                 }}
               >
-                Login
+                ??
+              </button>
+
+              <button
+                type="button"
+                aria-label="Wishlist"
+                title="Wishlist"
+                onClick={() => {
+                  setShowWishlist(true);
+                  setShowCart(false);
+                  setShowCustomerAccount(false);
+                  setShowCustomerLogin(false);
+                  setShowCustomerRegister(false);
+                  setShowCheckout(false);
+                }}
+              >
+                ?
+              </button>
+
+              <button
+                type="button"
+                aria-label="Cart"
+                title="Cart"
+                onClick={() => {
+                  setShowCart(true);
+                  setShowWishlist(false);
+                  setShowCustomerAccount(false);
+                  setShowCustomerLogin(false);
+                  setShowCustomerRegister(false);
+                  setShowCheckout(false);
+                }}
+              >
+                ??
+              </button>
+
+              <button
+                type="button"
+                className="mobile-menu-button"
+                aria-label="Open menu"
+                title="Menu"
+                onClick={() => setShowMobileMenu((open) => !open)}
+              >
+                &#9776;
               </button>
             </div>
+
+            {showMobileMenu && (
+              <div className="mobile-menu">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowMobileMenu(false);
+                    setShowShopParent(false);
+                    setShowCustomerAccount(false);
+                    setShowSellerArea(false);
+                    setShowBrowseProducts(false);
+                    setShowHomeSearch(false);
+                    setHomeDashboardView(null);
+                    setSelectedProduct(null);
+                  }}
+                >
+                  Home
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowMobileMenu(false);
+                    setShowShopParent(true);
+                    setShowCustomerAccount(false);
+                    setShowSellerArea(false);
+                  }}
+                >
+                  Shop
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowMobileMenu(false);
+                    setShowSellerArea(true);
+                    setShowShopParent(false);
+                    setShowCustomerAccount(false);
+                  }}
+                >
+                  Become a Seller
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowMobileMenu(false);
+                    setHomeDashboardView("contact");
+                  }}
+                >
+                  Contact Us
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowMobileMenu(false);
+                    setHomeDashboardView("help");
+                  }}
+                >
+                  FAQ &amp; Help
+                </button>
+              </div>
+            )}
           </div>
         </header>
 
         <main>
-          {showBrowseProducts ? (
+          {showHomeSearch ? (
+            <section className="home-search-page">
+              <div className="container">
+                <h1>Search AfriMarket</h1>
+                <div className="home-search-form">
+                  <input
+                    type="search"
+                    value={searchTerm}
+                    onChange={(event) => setSearchTerm(event.target.value)}
+                    placeholder="Search for products..."
+                    aria-label="Search products"
+                    autoFocus
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setHomeDashboardView("search")}
+                  >
+                    Search
+                  </button>
+                </div>
+
+                {homeDashboardView === "search" && (
+                  <>
+                    <h2>Search Results</h2>
+                    {filteredProducts.length > 0 ? (
+                      <div className="product-grid">
+                        {filteredProducts.map((product) => (
+                          <ProductCard
+                            key={product.name}
+                            name={product.name}
+                            price={product.price}
+                            image={product.image}
+                            onViewDetails={() => {
+                              setProductDetailsSource("home-search");
+                              setSelectedProduct(product);
+                            }}
+                          />
+                        ))}
+                      </div>
+                    ) : (
+                      <p>No products found. Try another search.</p>
+                    )}
+                  </>
+                )}
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowHomeSearch(false);
+                    setHomeDashboardView(null);
+                    setSearchTerm("");
+                  }}
+                >
+                  Back
+                </button>
+              </div>
+            </section>
+          ) : showBrowseProducts ? (
             <section className="browse-products-page">
               <div className="container">
                 <h1>Browse Products</h1>
@@ -965,6 +1115,8 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
 
 
 
