@@ -656,6 +656,7 @@ if (alreadySaved) {
                               setProductDetailsSource("home-search");
                               setSelectedProduct(product);
                               setSearchTerm("");
+                              setShowHomeSearch(false);
                             }}
                           >
                             <span>{product.name}</span>
@@ -1154,6 +1155,7 @@ if (alreadySaved) {
 }
 
 export default App;
+
 
 
 
