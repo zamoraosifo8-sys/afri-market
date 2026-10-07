@@ -721,6 +721,7 @@ if (alreadySaved) {
           ) : showBrowseProducts ? (
             <section className="browse-products-page">
               <div className="container">
+                <button type="button" onClick={() => { setShowBrowseProducts(false); setShowShopParent(true); }}>&#128281; Back</button>
                 <h1>Browse Products</h1>
                 <p>Choose from products available on AfriMarket.</p>
                 <div className="product-grid">
@@ -748,7 +749,7 @@ if (alreadySaved) {
                   Browse Products
                 </button>
                 <button type="button" onClick={() => setShowShopParent(false)}>
-                  Back
+                  &#128281; Back
                 </button>
               </div>
             </section>
@@ -1155,6 +1156,9 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
+
 
 
 
