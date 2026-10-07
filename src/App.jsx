@@ -737,7 +737,7 @@ if (alreadySaved) {
                   ))}
                 </div>
                 <button type="button" onClick={() => setShowBrowseProducts(false)}>
-                  Back
+                  &#128281; Back
                 </button>
               </div>
             </section>
@@ -1123,7 +1123,7 @@ if (alreadySaved) {
                       type="button"
                       onClick={() => setHomeDashboardView(null)}
                     >
-                      Back
+                      &#128281; Back
                     </button>
                   </div>
                 </section>
@@ -1157,6 +1157,8 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
 
 
 
