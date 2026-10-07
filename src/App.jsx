@@ -43,10 +43,11 @@ function saveOrders(orders) {
   }
 }
 
-function SellerArea({ onRegister, onLogin }) {
+function SellerArea({ onRegister, onLogin, onBack }) {
   return (
     <section className="seller-area">
       <div className="container">
+        <button type="button" onClick={onBack}>&#128281; Back</button>
         <h2>Become a Seller</h2>
         <div className="seller-area-actions">
           <button type="button" onClick={onRegister}>Sign Up</button>
@@ -938,7 +939,7 @@ if (alreadySaved) {
           ) : showCustomerRegister ? (
             <CustomerRegister onBack={() => { setShowCustomerRegister(false); setShowCustomerAccount(true); }} onRegistered={() => { setShowCustomerRegister(false); setShowCustomerLogin(true); }} />
           ) : showSellerArea ? (
-            <SellerArea onRegister={() => { setShowSellerRegister(true); setShowSellerArea(false); }} onLogin={() => { setShowSellerLogin(true); setShowSellerArea(false); }} />
+            <SellerArea onBack={() => setShowSellerArea(false)} onRegister={() => { setShowSellerRegister(true); setShowSellerArea(false); }} onLogin={() => { setShowSellerLogin(true); setShowSellerArea(false); }} />
           ) : showSellerRegister ? (
             <SellerRegister onRegistered={() => { setShowSellerRegister(false); setShowSellerLogin(true); }} />
           ) : showSellerLogin ? (
@@ -1156,6 +1157,8 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
 
 
 
