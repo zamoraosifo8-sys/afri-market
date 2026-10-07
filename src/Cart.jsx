@@ -1,5 +1,6 @@
 function Cart({
   items = [],
+  onBack,
   onContinueShopping,
   onRemove,
   onIncrease,
@@ -13,13 +14,23 @@ function Cart({
         : parseFloat(String(item.price).replace(/[₦,]/g, "")) || 0;
     return sum + price * (Number(item.quantity) || 0);
   }, 0);
+
   return (
     <div className="cart-page">
+      <button
+        type="button"
+        className="back-button"
+        onClick={onBack}
+      >
+        🔙 Back
+      </button>
+
       <h1>Your Shopping Cart</h1>
+
       {items.length === 0 ? (
         <div className="empty-cart">
           <p>Your cart is empty.</p>
-          <button onClick={onContinueShopping}>
+          <button type="button" onClick={onContinueShopping}>
             Continue Shopping
           </button>
         </div>
@@ -29,26 +40,52 @@ function Cart({
             <div className="cart-item" key={item.id || index}>
               <div>
                 <h2>{item.name}</h2>
-                <p>
-  Quantity:
-  <button
-    type="button"
-    onClick={() => onDecrease(index)}
-  >
-    −
-  </button>
 
-  <span>{item.quantity || 0}</span>
+                <div className="quantity-row">
+                  <span>Quantity:</span>
 
-  <button
-    type="button"
-    onClick={() => onIncrease(index)}
-  >
-    +
-  </button>
-</p>
+                  <div className="quantity-control">
+                    <button
+                      type="button"
+                      className="quantity-button"
+                      onClick={() => onIncrease(index)}
+                      aria-label={`Increase quantity of ${item.name}`}
+                    >
+                      +
+                    </button>
+
+                    <span className="quantity-value">
+                      {item.quantity || 0}
+                    </span>
+
+                    <button
+                      type="button"
+                      className="quantity-button"
+                      onClick={() => onDecrease(index)}
+                      aria-label={`Decrease quantity of ${item.name}`}
+                    >
+                      -
+                    </button>
+                  </div>
+                </div>
               </div>
-              <strong>{(() => { const price = typeof item.price === "number" ? item.price : parseFloat(String(item.price).replace(/[^\d.]/g, "")) || 0; return String.fromCharCode(0x20A6) + (price * (Number(item.quantity) || 0)).toLocaleString(); })()}</strong>
+
+              <strong>
+                {(() => {
+                  const price =
+                    typeof item.price === "number"
+                      ? item.price
+                      : parseFloat(
+                          String(item.price).replace(/[^\d.]/g, "")
+                        ) || 0;
+
+                  return (
+                    String.fromCharCode(0x20a6) +
+                    (price * (Number(item.quantity) || 0)).toLocaleString()
+                  );
+                })()}
+              </strong>
+
               <button
                 type="button"
                 onClick={() => onRemove(index)}
@@ -57,11 +94,14 @@ function Cart({
               </button>
             </div>
           ))}
+
           <div className="cart-total">
             <h2>Total: ₦{total.toLocaleString()}</h2>
+
             <button type="button" onClick={onCheckout}>
               Proceed to Checkout
             </button>
+
             <button type="button" onClick={onContinueShopping}>
               Continue Shopping
             </button>
@@ -71,6 +111,5 @@ function Cart({
     </div>
   );
 }
+
 export default Cart;
-
-

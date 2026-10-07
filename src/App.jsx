@@ -953,6 +953,7 @@ if (alreadySaved) {
           ) : showCart ? (
             <Cart
               items={cartItems}
+              onBack={showMainShop}
               onContinueShopping={showMainShop}
               onRemove={removeFromCart}
               onIncrease={increaseQuantity}
@@ -1153,6 +1154,8 @@ if (alreadySaved) {
 }
 
 export default App;
+
+
 
 
 
