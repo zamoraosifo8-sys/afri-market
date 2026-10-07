@@ -1008,7 +1008,7 @@ if (alreadySaved) {
               {selectedProduct ? (
                 <ProductDetails
                   product={selectedProduct}
-                  onClose={() => { const fromBrowse = productDetailsSource === "browse"; const fromShop = productDetailsSource === "shop"; setSelectedProduct(null); setProductDetailsSource(null); if (fromBrowse) { setShowBrowseProducts(true); } else if (fromShop) { setShowShopParent(true); } }}
+                  onClose={() => { const fromBrowse = productDetailsSource === "browse"; const fromShop = productDetailsSource === "shop"; const fromSearch = productDetailsSource === "home-search"; setSelectedProduct(null); setProductDetailsSource(null); if (fromBrowse) { setShowBrowseProducts(true); } else if (fromShop) { setShowShopParent(true); } else if (fromSearch) { setShowHomeSearch(true); setHomeDashboardView("search"); } }}
                   onAddToCart={addToCart}
                   onAddToWishlist={addToWishlist}
                   onRemoveFromWishlist={removeFromWishlist}
@@ -1155,6 +1155,7 @@ if (alreadySaved) {
 }
 
 export default App;
+
 
 
 
